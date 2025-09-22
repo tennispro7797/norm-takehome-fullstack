@@ -23,10 +23,12 @@ import NavButton, { NavIconEnum } from './NavButton';
 
 interface HeaderProps extends FlexProps {
   signOut: () => void;
+  onNewConversation?: () => void;
 }
 
 export default function HeaderNav({
   signOut,
+  onNewConversation,
   ...rest
 }: HeaderProps): React.ReactNode {
   const [isHovered, setIsHovered] = useState(false);
@@ -80,7 +82,7 @@ export default function HeaderNav({
                 <NavButton
                   navIconEnum={NavIconEnum.CREATE_PROJECT}
                   label="New Conversation"
-                  linkPath="/"
+                  onClick={onNewConversation}
                 />
               </HStack>
               <Box height="32px" width="1px" bg="#DBDCE1" mx={3} />
